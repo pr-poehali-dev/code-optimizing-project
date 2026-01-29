@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "Create new ticket",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "subject": "Test ticket",
+        "description": "This is a test ticket description",
+        "priority": "medium"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "ticket": {
+          "subject": "string",
+          "status": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get tickets list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

@@ -44,29 +44,28 @@ export function ContactSection() {
               }`}
             >
               <h2 className="mb-2 font-sans text-4xl font-light leading-[1.05] tracking-tight text-foreground md:mb-3 md:text-7xl lg:text-8xl">
-                Давайте
+                Начните
                 <br />
-                поговорим
+                сейчас
               </h2>
-              <p className="font-mono text-xs text-foreground/60 md:text-base">/ Свяжитесь с нами</p>
+              <p className="font-mono text-xs text-foreground/60 md:text-base">/ Регистрация и вход</p>
             </div>
 
             <div className="space-y-4 md:space-y-8">
-              <a
-                href="mailto:info@flowrise.dev"
-                className={`group block transition-all duration-700 ${
+              <div
+                className={`transition-all duration-700 ${
                   isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
                 <div className="mb-1 flex items-center gap-2">
                   <Mail className="h-3 w-3 text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Email</span>
+                  <span className="font-mono text-xs text-foreground/60">Быстрый старт</span>
                 </div>
-                <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
-                  info@flowrise.dev
+                <p className="text-base text-foreground md:text-2xl">
+                  Зарегистрируйтесь и начните работу с заявками за 1 минуту
                 </p>
-              </a>
+              </div>
 
               <div
                 className={`transition-all duration-700 ${
@@ -76,26 +75,9 @@ export function ContactSection() {
               >
                 <div className="mb-1 flex items-center gap-2">
                   <MapPin className="h-3 w-3 text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Локация</span>
+                  <span className="font-mono text-xs text-foreground/60">Бесплатный период</span>
                 </div>
-                <p className="text-base text-foreground md:text-2xl">Москва, Россия</p>
-              </div>
-
-              <div
-                className={`flex gap-2 pt-2 transition-all duration-700 md:pt-4 ${
-                  isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
-                }`}
-                style={{ transitionDelay: "500ms" }}
-              >
-                {["Telegram", "VK", "LinkedIn", "GitHub"].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="border-b border-transparent font-mono text-xs text-foreground/60 transition-all hover:border-foreground/60 hover:text-foreground/90"
-                  >
-                    {social}
-                  </a>
-                ))}
+                <p className="text-base text-foreground md:text-2xl">14 дней полного доступа к платформе</p>
               </div>
             </div>
           </div>
@@ -164,8 +146,12 @@ export function ContactSection() {
                   variant="primary"
                   size="lg"
                   className="w-full disabled:opacity-50"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    window.location.href = '/login'
+                  }}
                 >
-                  {isSubmitting ? "Отправка..." : "Отправить"}
+                  Перейти к регистрации
                 </MagneticButton>
                 {submitSuccess && (
                   <p className="mt-3 text-center font-mono text-sm text-foreground/80">Сообщение отправлено!</p>
